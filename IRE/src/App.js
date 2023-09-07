@@ -4,17 +4,19 @@ import theme from "./style/theme";
 import Research from "./pages/Research";
 import { Routes, Route } from "react-router-dom";
 
+const staticServerUrl = process.env.REACT_APP_PATH || "";
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
         <Routes>
-          <Route path="/" element={Research} />
-          <Route path="/research" />
-          <Route path="/campingList/all" />
-          <Route path="/campingList/jeju" />
-          <Route path="/campingList/seongwipo" />
-          <Route path="/campingDetail/:id" />
+          <Route path={staticServerUrl + "/"} element={Research} />
+          <Route path={staticServerUrl + "/research"} />
+          <Route path={staticServerUrl + "/campingList/all"} />
+          <Route path={staticServerUrl + "/campingList/jeju"} />
+          <Route path={staticServerUrl + "/campingList/seongwipo"} />
+          <Route path={staticServerUrl + "/campingDetail/:id"} />
         </Routes>
       </div>
     </ThemeProvider>
