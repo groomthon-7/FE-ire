@@ -1,6 +1,7 @@
 import ocean from "./assets/Research/ocean.png";
 import yard from "./assets/Research/yard.png";
 import star from "./assets/Research/star.png";
+import forest from "./assets/Research/tree.png";
 
 export const researchData = [
   {
@@ -20,17 +21,17 @@ export const researchData = [
       { title: "바다", img: ocean },
       { title: "들판", img: yard },
       { title: "별", img: star },
-      { title: "숲", img: "" },
+      { title: "숲", img: forest },
     ],
   },
   {
     index: 2,
     questions: "어떤 종류의 캠핑을 선호하시나요?",
     contents: [
-      { title: "텐트 캠핑", img: "" },
+      { title: "텐트", img: "" },
       { title: "카라반", img: "" },
       { title: "글램핑", img: "" },
-      { title: "차박", img: "" },
+      { title: "미정", img: "" },
     ],
   },
   {
