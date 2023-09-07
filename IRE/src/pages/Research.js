@@ -1,23 +1,23 @@
-import { useState, useEffect } from 'react';
-import { researchData } from '../researchData';
-import styled from 'styled-components';
-import Button from '../components/common/button';
-import ProgressBar from '../components/Research/ProgressBar';
-import SmallCard from '../components/Research/SmallCard';
-import MediumCard from '../components/Research/MediumCard';
-import { useDispatch } from 'react-redux';
-import { setPeople, setView, setCamp, setWeather } from '../Redux/action';
-import ViewCard from '../components/Research/View';
-import LayOut from '../components/common/layout';
-import { useSelector } from 'react-redux';
-import { POST_Research } from '../api/research';
-import alert from '../assets/Research/alert.png';
-import Loading from './Loading';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { researchData } from "../researchData";
+import styled from "styled-components";
+import Button from "../components/common/button";
+import ProgressBar from "../components/Research/ProgressBar";
+import SmallCard from "../components/Research/SmallCard";
+import MediumCard from "../components/Research/MediumCard";
+import { useDispatch } from "react-redux";
+import { setPeople, setView, setCamp, setWeather } from "../Redux/action";
+import ViewCard from "../components/Research/View";
+import LayOut from "../components/common/layout";
+import { useSelector } from "react-redux";
+import { POST_Research } from "../api/research";
+import alert from "../assets/Research/alert.png";
+import Loading from "./Loading";
+import { useNavigate } from "react-router-dom";
 
 const Research = () => {
   const [curPage, setCurPage] = useState(0); // 현 페이지 index
-  const [selectedValue, setSelectedValue] = useState(''); // 선택한 값
+  const [selectedValue, setSelectedValue] = useState(""); // 선택한 값
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -29,13 +29,13 @@ const Research = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const answer1List = ['혼자', '연인', '친구', '가족'];
-  const answer2List = ['바다', '들판', '별', '숲'];
-  const answer3List = ['텐트', '글램핑', '카라반', '상관없어요'];
-  const answer4List = ['봄', '여름', '가을', '겨울'];
+  const answer1List = ["혼자", "연인", "친구", "가족"];
+  const answer2List = ["바다", "들판", "별", "숲"];
+  const answer3List = ["텐트", "글램핑", "카라반", "상관없어요"];
+  const answer4List = ["봄", "여름", "가을", "겨울"];
 
   const navigateList = (data) => {
-    navigate('/campingList/all', {
+    navigate("/campingList/all", {
       state: {
         ...data,
       },
@@ -43,18 +43,18 @@ const Research = () => {
   };
 
   useEffect(() => {
-    if (selectedValue !== '') {
+    if (selectedValue !== "") {
       setIsOpen(false);
     }
   }, [selectedValue]);
 
   const NextBtn = () => {
-    if (selectedValue === '') {
+    if (selectedValue === "") {
       setIsOpen(true);
     } else if (curPage === 3) {
       const info = `people: ${people}, view: ${view}, camp: ${camp}, weather: ${weather}`;
 
-      const infos = info.split(', ');
+      const infos = info.split(", ");
 
       let infoIndex = 0;
 
@@ -69,22 +69,22 @@ const Research = () => {
       }
 
       if (infoIndex % 10 === 1 && Math.floor(infoIndex / 10) % 10 === 1) {
-        const data = POST_Research(setIsLoading, isLoading, 1);
+        const data = POST_Research(setIsLoading, isLoading, "1");
         navigateList(data);
       } else if (
         infoIndex % 10 === 1 &&
         Math.floor(infoIndex / 10) % 10 !== 1
       ) {
-        const data = POST_Research(setIsLoading, isLoading, 2);
+        const data = POST_Research(setIsLoading, isLoading, "2");
         navigateList(data);
       } else if (
         infoIndex % 10 !== 1 &&
         Math.floor(infoIndex / 10) % 10 === 1
       ) {
-        const data = POST_Research(setIsLoading, isLoading, 3);
+        const data = POST_Research(setIsLoading, isLoading, "3");
         navigateList(data);
       } else {
-        const data = POST_Research(setIsLoading, isLoading, 4);
+        const data = POST_Research(setIsLoading, isLoading, "4");
         navigateList(data);
       }
     } else {
@@ -107,7 +107,7 @@ const Research = () => {
           break;
       }
 
-      setSelectedValue('');
+      setSelectedValue("");
     }
   };
 
@@ -131,7 +131,7 @@ const Research = () => {
         break;
     }
 
-    setSelectedValue('');
+    setSelectedValue("");
   };
 
   return (
@@ -178,12 +178,12 @@ const Research = () => {
           {isOpen && <Alert src={alert} onClick={() => setIsOpen(false)} />}
           {curPage === 0 ? (
             <BtnContainer>
-              <Button type='lg' text='다음' onClick={NextBtn} />
+              <Button type="lg" text="다음" onClick={NextBtn} />
             </BtnContainer>
           ) : (
             <BtnContainer>
-              <Button type='sm' text='이전' onClick={PrevBtn} />
-              <Button type='md' text='다음' onClick={NextBtn} />
+              <Button type="sm" text="이전" onClick={PrevBtn} />
+              <Button type="md" text="다음" onClick={NextBtn} />
             </BtnContainer>
           )}
         </Container>

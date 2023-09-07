@@ -14,10 +14,16 @@ const CampingDetail = () => {
 
   const data = { ...location.state };
 
+  const moveToMap = ({ url }) => {
+    window.open(url, '_blank', 'noopener, noreferrer');
+  };
+
   return (
     <div>
-      <Back src={backButton} />
-      <CampImg src={thumnail} />
+      <Template>
+        <Back src={backButton} />
+        <CampImg src={thumnail} />
+      </Template>
 
       <LayOut>
         <InfoContainer>
@@ -28,7 +34,9 @@ const CampingDetail = () => {
             <DatailContainer>
               <Icon src={pin} />
               <Text>{data.address}</Text>
-              <MapButton>지도보기</MapButton>
+              <MapButton onClick={moveToMap('https://camfit.co.kr/')}>
+                지도보기
+              </MapButton>
             </DatailContainer>
             <DatailContainer>
               <Icon src={phone} />
@@ -88,7 +96,14 @@ const CampingDetail = () => {
   );
 };
 
+const Template = styled.div`
+  width: 375px;
+  position: absolute;
+  top: 0;
+`;
+
 const Back = styled.img`
+  position: absolute;
   width: 1.5rem;
   height: 1.5rem;
   margin-left: 1rem;
@@ -96,12 +111,9 @@ const Back = styled.img`
 `;
 
 const CampImg = styled.img`
-  position: absolute;
-  height: 22.75rem;
-  width: 100vw;
+  height: 21rem;
+  width: 100%;
   z-index: -1;
-  top: 0;
-  left: 0;
 `;
 
 const NameContainer = styled.div`
@@ -119,7 +131,9 @@ const DetailInfo = styled.div`
   margin-top: 1rem;
 `;
 
-const InfoContainer = styled.div``;
+const InfoContainer = styled.div`
+  margin-top: 22rem;
+`;
 
 const Icon = styled.img`
   width: 0.9rem;
