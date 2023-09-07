@@ -21,7 +21,6 @@ import { POST_Research } from "../api/research";
 const Research = () => {
   const [curPage, setCurPage] = useState(0); // 현 페이지 index
   const [selectedValue, setSelectedValue] = useState(""); // 선택한 값
-
   const people = useSelector((state) => state.people);
   const view = useSelector((state) => state.view);
   const weather = useSelector((state) => state.weather);
@@ -92,34 +91,36 @@ const Research = () => {
         <ProgressBar complete={curPage + 1} />
         <Title>{researchData[curPage].questions}</Title>
         <CardContainer>
-          {curPage === 1
-            ? researchData[curPage].contents.map((el, idx) => (
-                <ViewCard
-                  key={idx}
-                  text={el.title}
-                  selectedValue={selectedValue}
-                  setSelectedValue={setSelectedValue}
-                  img={el.img}
-                />
-              ))
-            : curPage === 3
-            ? researchData[curPage].contents.map((el, idx) => (
-                <MediumCard
-                  key={idx}
-                  text={el.title}
-                  selectedValue={selectedValue}
-                  setSelectedValue={setSelectedValue}
-                  img={el.img}
-                />
-              ))
-            : researchData[curPage].contents.map((el, idx) => (
-                <SmallCard
-                  key={idx}
-                  text={el.title}
-                  selectedValue={selectedValue}
-                  setSelectedValue={setSelectedValue}
-                />
-              ))}
+          {curPage === 1 &&
+            researchData[curPage].contents.map((el, idx) => (
+              <ViewCard
+                key={idx}
+                text={el.title}
+                selectedValue={selectedValue}
+                setSelectedValue={setSelectedValue}
+                img={el.img}
+              />
+            ))}
+          {curPage === 3 &&
+            researchData[curPage].contents.map((el, idx) => (
+              <MediumCard
+                key={idx}
+                text={el.title}
+                selectedValue={selectedValue}
+                setSelectedValue={setSelectedValue}
+                img={el.img}
+              />
+            ))}
+          {curPage !== 1 &&
+            curPage !== 3 &&
+            researchData[curPage].contents.map((el, idx) => (
+              <SmallCard
+                key={idx}
+                text={el.title}
+                selectedValue={selectedValue}
+                setSelectedValue={setSelectedValue}
+              />
+            ))}
         </CardContainer>
         {curPage === 0 ? (
           <BtnContainer>
