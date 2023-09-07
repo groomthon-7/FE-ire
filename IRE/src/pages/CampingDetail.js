@@ -1,18 +1,22 @@
-import { styled } from "styled-components";
-import backButton from "../assets/CampingDetail/chevron-left.png";
-import thumnail from "../assets/CampingDetail/Frame 1000003974.png";
-import phone from "../assets/CampingDetail/phone.png";
-import pin from "../assets/CampingDetail/pin.png";
-import LayOut from "../components/common/layout";
-import Facility from "../components/CampingDetail/Facility";
-import Mart from "../components/CampingDetail/Mart";
-import Food from "../components/CampingDetail/Food";
-import { useLocation } from "react-router-dom";
+import { styled } from 'styled-components';
+import backButton from '../assets/CampingDetail/chevron-left.png';
+import thumnail from '../assets/CampingDetail/Frame 1000003974.png';
+import phone from '../assets/CampingDetail/phone.png';
+import pin from '../assets/CampingDetail/pin.png';
+import LayOut from '../components/common/layout';
+import Facility from '../components/CampingDetail/Facility';
+import Mart from '../components/CampingDetail/Mart';
+import Food from '../components/CampingDetail/Food';
+import { useLocation } from 'react-router-dom';
 
 const CampingDetail = () => {
   const location = useLocation();
 
   const data = { ...location.state };
+
+  const moveToMap = ({ url }) => {
+    window.open(url, '_blank', 'noopener, noreferrer');
+  };
 
   return (
     <div>
@@ -30,7 +34,9 @@ const CampingDetail = () => {
             <DatailContainer>
               <Icon src={pin} />
               <Text>{data.address}</Text>
-              <MapButton>지도보기</MapButton>
+              <MapButton onClick={moveToMap('https://camfit.co.kr/')}>
+                지도보기
+              </MapButton>
             </DatailContainer>
             <DatailContainer>
               <Icon src={phone} />
@@ -113,7 +119,7 @@ const CampImg = styled.img`
 const NameContainer = styled.div`
   font-size: 1.25rem;
   font-weight: 700;
-  margin-top: ${(props) => (props.mart ? "1rem" : "21rem")};
+  margin-top: ${(props) => (props.mart ? '1rem' : '21rem')};
 `;
 
 const Name = styled.div`
