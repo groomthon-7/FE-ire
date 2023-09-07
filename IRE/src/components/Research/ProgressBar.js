@@ -8,7 +8,7 @@ const ProgressBar = ({ complete }) => {
       {Array.from({ length: complete }).map((_, index) => (
         <Circle2 key={index} src={circle2} />
       ))}
-      {Array.from({ length: 5 - complete }).map((_, index) => (
+      {Array.from({ length: 4 - complete }).map((_, index) => (
         <Circle1 key={index} src={circle1} />
       ))}
     </Container>

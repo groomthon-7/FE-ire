@@ -17,8 +17,3 @@ export const setWeather = (weather) => ({
   type: "SET_WEATHER",
   payload: weather,
 });
-
-export const setOther = (other) => ({
-  type: "SET_OTHER",
-  payload: other,
-});
