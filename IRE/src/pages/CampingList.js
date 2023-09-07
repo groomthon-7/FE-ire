@@ -12,6 +12,8 @@ const CampingList = ({ category }) => {
     setActiveButton(buttonIndex);
   };
 
+  const showMap = () => {};
+
   return (
     <CampingListLayout>
       <Header>
@@ -32,7 +34,7 @@ const CampingList = ({ category }) => {
             onClick={() => handleButtonClick(2)}
           />
         </ButtonContainer>
-        <MapIcon src={icon} />
+        <MapIcon src={icon} onClick={showMap} />
       </Header>
 
       <CampingListContainer>
@@ -67,7 +69,6 @@ const Header = styled.div`
   justify-content: space-between;
   width: 100%;
   align-items: center;
-
 `;
 
 const ButtonContainer = styled.div`
