@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import spinImg from '../assets/Loading/spin.png';
 import spinner from '../assets/Loading/Rolling-1s-244px.gif';

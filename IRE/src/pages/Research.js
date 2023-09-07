@@ -1,26 +1,27 @@
-import { useState } from "react";
-import { researchData } from "../researchData";
-import styled from "styled-components";
-import Button from "../components/common/button";
-import ProgressBar from "../components/Research/ProgressBar";
-import SmallCard from "../components/Research/SmallCard";
-import MediumCard from "../components/Research/MediumCard";
-import { useDispatch } from "react-redux";
+import { useState } from 'react';
+import { researchData } from '../researchData';
+import styled from 'styled-components';
+import Button from '../components/common/button';
+import ProgressBar from '../components/Research/ProgressBar';
+import SmallCard from '../components/Research/SmallCard';
+import MediumCard from '../components/Research/MediumCard';
+import { useDispatch } from 'react-redux';
 import {
   setPeople,
   setView,
   setCamp,
   setWeather,
   setOther,
-} from "../Redux/action";
-import ViewCard from "../components/Research/View";
-import LayOut from "../components/common/layout";
-import { useSelector } from "react-redux";
-import { POST_Research } from "../api/research";
+} from '../Redux/action';
+import ViewCard from '../components/Research/View';
+import LayOut from '../components/common/layout';
+import { useSelector } from 'react-redux';
+import { POST_Research } from '../api/research';
+import { useNavigate } from 'react-router-dom';
 
 const Research = () => {
   const [curPage, setCurPage] = useState(0); // 현 페이지 index
-  const [selectedValue, setSelectedValue] = useState(""); // 선택한 값
+  const [selectedValue, setSelectedValue] = useState(''); // 선택한 값
   const people = useSelector((state) => state.people);
   const view = useSelector((state) => state.view);
   const weather = useSelector((state) => state.weather);
@@ -28,10 +29,12 @@ const Research = () => {
   const camp = useSelector((state) => state.camp);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const NextBtn = () => {
     if (curPage === 5) {
-      POST_Research(people, view, camp, weather, other);
+      navigate('/loading');
+      // POST_Research(people, view, camp, weather, other);
     } else {
       setCurPage(curPage + 1);
 
@@ -55,7 +58,7 @@ const Research = () => {
           break;
       }
 
-      setSelectedValue("");
+      setSelectedValue('');
     }
   };
 
@@ -82,7 +85,7 @@ const Research = () => {
         break;
     }
 
-    setSelectedValue("");
+    setSelectedValue('');
   };
 
   return (
@@ -124,12 +127,12 @@ const Research = () => {
         </CardContainer>
         {curPage === 0 ? (
           <BtnContainer>
-            <Button type="lg" text="다음" onClick={NextBtn} />
+            <Button type='lg' text='다음' onClick={NextBtn} />
           </BtnContainer>
         ) : (
           <BtnContainer>
-            <Button type="sm" text="이전" onClick={PrevBtn} />
-            <Button type="md" text="다음" onClick={NextBtn} />
+            <Button type='sm' text='이전' onClick={PrevBtn} />
+            <Button type='md' text='다음' onClick={NextBtn} />
           </BtnContainer>
         )}
       </Container>
