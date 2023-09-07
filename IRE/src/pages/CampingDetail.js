@@ -16,8 +16,8 @@ const CampingDetail = () => {
 
   return (
     <div>
-      <Back src={backButton} />
       <Template>
+        <Back src={backButton} />
         <CampImg src={thumnail} />
       </Template>
 
@@ -97,6 +97,7 @@ const Template = styled.div`
 `;
 
 const Back = styled.img`
+  position: absolute;
   width: 1.5rem;
   height: 1.5rem;
   margin-left: 1rem;
@@ -104,7 +105,7 @@ const Back = styled.img`
 `;
 
 const CampImg = styled.img`
-  height: 22.75rem;
+  height: 21rem;
   width: 100%;
   z-index: -1;
 `;
@@ -124,7 +125,9 @@ const DetailInfo = styled.div`
   margin-top: 1rem;
 `;
 
-const InfoContainer = styled.div``;
+const InfoContainer = styled.div`
+  margin-top: 22rem;
+`;
 
 const Icon = styled.img`
   width: 0.9rem;
