@@ -39,7 +39,7 @@ const Text = styled.p`
   line-height: 26px;
   margin-left: 16px;
   margin-top: -125px;
-  color: ${(props) => (props.c === "false" ? "black" : "white")};
+  color: "black";
 `;
 
 const Container = styled.div`
@@ -49,8 +49,6 @@ const Container = styled.div`
   align-items: center;
   border-radius: 12px;
   border: 1px solid #f4f4f4;
-  background: ${(props) =>
-    props.c === "false" ? "white" : theme.color.mainColor};
   box-shadow: 0px 4px 14px 0px #f3f3f3;
   cursor: pointer;
   position: relative;
