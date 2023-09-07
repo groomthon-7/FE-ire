@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 import theme from "../../style/theme";
-import { useSelector } from "react-redux";
 
 const MediumCard = ({ text, img, selectedValue, setSelectedValue }) => {
   const [clicked, setClicked] = useState("false");

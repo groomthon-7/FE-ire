@@ -1,13 +1,9 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 import theme from "../../style/theme";
-import { useSelector } from "react-redux";
 
 const SmallCard = ({ text, img, selectedValue, setSelectedValue }) => {
   const [clicked, setClicked] = useState("false");
-
-  const peopleValue = useSelector((state) => state.people); // 'people'는 Redux 스토어의 상태 이름에 맞게 수정
-  console.log("sdas", peopleValue);
 
   const handleClick = () => {
     setClicked(!clicked);
