@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { color } from "../IRE/src/style/theme";
+import { color } from "../../style/theme";
 
 const Button = ({ type, text, onClick }) => {
   return (
