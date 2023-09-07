@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 import theme from "../../style/theme";
-import { useSelector } from "react-redux";
 
-const SmallCard = ({ text, img, selectedValue, setSelectedValue }) => {
+const LongBtn = ({ text, selectedValue, setSelectedValue }) => {
   const [clicked, setClicked] = useState("false");
 
   const handleClick = () => {
@@ -19,19 +18,15 @@ const SmallCard = ({ text, img, selectedValue, setSelectedValue }) => {
   }, [selectedValue]);
 
   return (
-    <Container onClick={handleClick} c={clicked}>
-      <Text c={clicked}>{text}</Text>
-      <Icon src={img} />
-    </Container>
+    <Center>
+      <Container onClick={handleClick} c={clicked}>
+        <Text c={clicked}>{text}</Text>
+      </Container>
+    </Center>
   );
 };
 
-const Icon = styled.img`
-  height: 32px;
-  margin-top: 3.5rem;
-  margin-left: auto;
-  margin-right: 15px;
-`;
+const Center = styled.div``;
 
 const Text = styled.p`
   color: var(--, #292929);
@@ -39,21 +34,21 @@ const Text = styled.p`
   font-weight: 700;
   line-height: 26px;
   margin-left: 16px;
-  margin-top: -45px;
   color: ${(props) => (props.c === "false" ? "black" : "white")};
 `;
 
 const Container = styled.div`
   display: flex;
-  width: 165px;
-  height: 118px;
+  height: 48px;
+  padding: 8px 24px;
+  justify-content: center;
   align-items: center;
-  border-radius: 12px;
-  border: 1px solid #f4f4f4;
+  border-radius: 8px;
+  border: 1px solid #eaeaea;
   background: ${(props) =>
     props.c === "false" ? "white" : theme.color.mainColor};
   box-shadow: 0px 4px 14px 0px #f3f3f3;
-  cursor: pointer;
+  margin-bottom: 12px;
 `;
 
-export default SmallCard;
+export default LongBtn;

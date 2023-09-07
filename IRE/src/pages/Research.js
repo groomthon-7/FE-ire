@@ -17,6 +17,7 @@ import ViewCard from "../components/Research/View";
 import LayOut from "../components/common/layout";
 import { useSelector } from "react-redux";
 import { POST_Research } from "../api/research";
+import LongBtn from "../components/Research/LongBtn";
 
 const Research = () => {
   const [curPage, setCurPage] = useState(0); // 현 페이지 index
@@ -113,6 +114,7 @@ const Research = () => {
             ))}
           {curPage !== 1 &&
             curPage !== 3 &&
+            curPage !== 4 &&
             researchData[curPage].contents.map((el, idx) => (
               <SmallCard
                 key={idx}
@@ -123,6 +125,16 @@ const Research = () => {
               />
             ))}
         </CardContainer>
+        {curPage === 4 &&
+          researchData[curPage].contents.map((el, idx) => (
+            <LongBtn
+              key={idx}
+              text={el.title}
+              selectedValue={selectedValue}
+              setSelectedValue={setSelectedValue}
+            />
+          ))}
+
         {curPage === 0 ? (
           <BtnContainer>
             <Button type="lg" text="다음" onClick={NextBtn} />

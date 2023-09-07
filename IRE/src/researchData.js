@@ -50,7 +50,8 @@ export const researchData = [
   },
   {
     index: 4,
-    questions: "마지막으로 참고하면 좋을 사항이 있나요?",
+    questions: `마지막으로 
+    참고하면 좋을 사항이 있나요?`,
     contents: [
       { title: "애완동물을 동반하고 싶어요.", img: "" },
       { title: "바베큐장이 있으면 좋겠어요.", img: "" },
