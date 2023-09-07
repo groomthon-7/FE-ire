@@ -8,26 +8,50 @@ import LayOut from '../components/common/layout';
 import { getAllCampingApi } from '../api/getCampingList';
 
 import allData from './all';
+import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const CampingList = ({ category }) => {
-  const showAllData = () => {
-    const res = getAllCampingApi();
-    return res;
-  };
+  const location = useLocation();
+
+  const data = { ...location.state };
+
+  // const filteredData = allData.map((el, idx) => ({
+  //   businessName: el.businessName,
+  //   longitude: el.longitude,
+  //   latitude: el.latitude,
+  // }));
+
+  // console.log('필터', filteredData);
+
+  // [[이름, 위도, 경도],[이름, 위도, 경도]]
+
+  const navigate = useNavigate();
 
   return (
     <LayOut>
       <CampingListLayout>
         <Header>
           <ButtonContainer>
-            <Button text='전체' active onClick={showAllData} />
+            <Button text='전체' active />
           </ButtonContainer>
-          <MapIcon src={icon} />
+          <MapIcon
+            src={icon}
+            // onClick={() =>
+            //   navigate('/campingMap', {
+            //     state: {
+            //       name: data.businessName,
+            //       longitude: data.longitude,
+            //       latitude: data.latitude,
+            //     },
+            //   })
+            // }
+          />
         </Header>
 
         <CampingListContainer>
-          {allData.map((data) => (
-            <CampingCard data={data} />
+          {data.map((item) => (
+            <CampingCard data={item} />
           ))}
         </CampingListContainer>
       </CampingListLayout>
