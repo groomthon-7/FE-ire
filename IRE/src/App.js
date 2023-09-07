@@ -7,10 +7,11 @@ import CampingList from './pages/CampingList';
 
 const staticServerUrl = process.env.REACT_APP_PATH || '';
 
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div className='App'>
+      <div className="App">
         <Routes>
           <Route path={staticServerUrl + '/'} />
           <Route path={staticServerUrl + '/research'} />
