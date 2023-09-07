@@ -3,7 +3,7 @@ import theme from "../../style/theme";
 
 const Button = ({ type, text, onClick }) => {
   return (
-    <Btn type={type} color={theme.color} onClick={onClick}>
+    <Btn type={type} onClick={onClick}>
       {text}
     </Btn>
   );
@@ -11,11 +11,18 @@ const Button = ({ type, text, onClick }) => {
 
 const Btn = styled.button`
   width: ${(props) =>
-    props.type === "lg" ? "21.44rem" : "md" ? "16.19rem" : "4.75rem"};
+    props.type === "lg"
+      ? "21.44rem"
+      : props.type === "md"
+      ? "16.19rem"
+      : "4.75rem"};
   height: 3rem;
-  background-color: ${(props) => props.color.lightGray};
+  background-color: ${(props) => props.theme.color.mainColor};
   border: none;
   border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
 `;
 
 export default Button;

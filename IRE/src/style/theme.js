@@ -1,6 +1,6 @@
 const fontSize = {};
 const fontWeight = {};
-const color = {};
+const color = { mainColor: "#18436B" };
 const margin = {};
 
 const theme = {
