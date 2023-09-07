@@ -23,6 +23,7 @@ const Research = () => {
   const camp = useSelector((state) => state.camp);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const answer1List = ["혼자", "연인", "친구", "가족"];
   const answer2List = ["바다", "들판", "별", "숲"];
@@ -70,6 +71,7 @@ const Research = () => {
       } else {
         POST_Research(4);
       }
+
     } else {
       setCurPage(curPage + 1);
 
@@ -90,7 +92,7 @@ const Research = () => {
           break;
       }
 
-      setSelectedValue("");
+      setSelectedValue('');
     }
   };
 
@@ -114,7 +116,7 @@ const Research = () => {
         break;
     }
 
-    setSelectedValue("");
+    setSelectedValue('');
   };
 
   return (
@@ -158,12 +160,12 @@ const Research = () => {
         {isOpen && <Alert src={alert} onClick={() => setIsOpen(false)} />}
         {curPage === 0 ? (
           <BtnContainer>
-            <Button type="lg" text="다음" onClick={NextBtn} />
+            <Button type='lg' text='다음' onClick={NextBtn} />
           </BtnContainer>
         ) : (
           <BtnContainer>
-            <Button type="sm" text="이전" onClick={PrevBtn} />
-            <Button type="md" text="다음" onClick={NextBtn} />
+            <Button type='sm' text='이전' onClick={PrevBtn} />
+            <Button type='md' text='다음' onClick={NextBtn} />
           </BtnContainer>
         )}
       </Container>

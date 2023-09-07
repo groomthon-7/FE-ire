@@ -18,7 +18,7 @@ import inactiveForest from "./assets/Research/4_gray.png";
 export const researchData = [
   {
     index: 0,
-    questions: "누구와 함께 가시나요?",
+    questions: '누구와 함께 가시나요?',
     contents: [
       { title: "혼자", img: solo },
       { title: "연인", img: couple },
@@ -28,7 +28,7 @@ export const researchData = [
   },
   {
     index: 1,
-    questions: "어떤 자연 환경을 선호하시나요?",
+    questions: '어떤 자연 환경을 선호하시나요?',
     contents: [
       { title: "바다", img: [ocean, inactiveOcean] },
       { title: "들판", img: [yard, inactiveYard] },
@@ -38,7 +38,7 @@ export const researchData = [
   },
   {
     index: 2,
-    questions: "어떤 종류의 캠핑을 선호하시나요?",
+    questions: '어떤 종류의 캠핑을 선호하시나요?',
     contents: [
       { title: "텐트", img: tent },
       { title: "글램핑", img: glamping },
@@ -48,12 +48,12 @@ export const researchData = [
   },
   {
     index: 3,
-    questions: "어떤 자연환경을 선호하시나요?",
+    questions: '어떤 자연환경을 선호하시나요?',
     contents: [
-      { title: "봄", img: "" },
-      { title: "여름", img: "" },
-      { title: "가을", img: "" },
-      { title: "겨울", img: "" },
+      { title: '봄', img: '' },
+      { title: '여름', img: '' },
+      { title: '가을', img: '' },
+      { title: '겨울', img: '' },
     ],
   },
 ];
