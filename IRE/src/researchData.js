@@ -1,3 +1,7 @@
+import ocean from "./assets/Research/ocean.png";
+import yard from "./assets/Research/yard.png";
+import star from "./assets/Research/star.png";
+
 export const researchData = [
   {
     index: 0,
@@ -13,10 +17,10 @@ export const researchData = [
     index: 1,
     questions: "어떤 자연 환경을 선호하시나요?",
     contents: [
+      { title: "바다", img: ocean },
+      { title: "들판", img: yard },
+      { title: "별", img: star },
       { title: "숲", img: "" },
-      { title: "바다", img: "" },
-      { title: "산", img: "" },
-      { title: "들판", img: "" },
     ],
   },
   {
@@ -31,12 +35,12 @@ export const researchData = [
   },
   {
     index: 3,
-    questions: "어떤 계절에 캠핑을 계획하고 계신가요?",
+    questions: "어떤 자연환경을 선호하시나요?",
     contents: [
-      { title: "따뜻하고 화사한 봄", img: "" },
-      { title: "수상 스포츠에 제격인 여름", img: "" },
-      { title: "야외 활동하기 좋은 가을", img: "" },
-      { title: "로맨틱한 겨울", img: "" },
+      { title: "봄", img: "" },
+      { title: "여름", img: "" },
+      { title: "가을", img: "" },
+      { title: "겨울", img: "" },
     ],
   },
   {

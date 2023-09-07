@@ -1,13 +1,8 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
-import theme from "../../style/theme";
-import { useSelector } from "react-redux";
 
-const SmallCard = ({ text, img, selectedValue, setSelectedValue }) => {
+const ViewCard = ({ text, img, selectedValue, setSelectedValue }) => {
   const [clicked, setClicked] = useState("false");
-
-  const peopleValue = useSelector((state) => state.people); // 'people'는 Redux 스토어의 상태 이름에 맞게 수정
-  console.log("sdas", peopleValue);
 
   const handleClick = () => {
     setClicked(!clicked);
@@ -24,31 +19,39 @@ const SmallCard = ({ text, img, selectedValue, setSelectedValue }) => {
   return (
     <Container onClick={handleClick} c={clicked}>
       <Text c={clicked}>{text}</Text>
+      <Img src={img} />
     </Container>
   );
 };
 
+const Img = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
 const Text = styled.p`
+  position: absolute;
   color: var(--, #292929);
   font-size: 18px;
   font-weight: 700;
   line-height: 26px;
   margin-left: 16px;
-  margin-top: -45px;
-  color: ${(props) => (props.c === "false" ? "black" : "white")};
+  margin-top: -125px;
+  color: "black";
 `;
 
 const Container = styled.div`
   display: flex;
   width: 165px;
-  height: 118px;
+  height: 196px;
   align-items: center;
   border-radius: 12px;
   border: 1px solid #f4f4f4;
-  background: ${(props) =>
-    props.c === "false" ? "white" : theme.color.mainColor};
+  background: ${(props) => (props.c === "false" ? "white" : "none")};
   box-shadow: 0px 4px 14px 0px #f3f3f3;
   cursor: pointer;
+  position: relative;
 `;
 
-export default SmallCard;
+export default ViewCard;
