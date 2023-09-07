@@ -1,13 +1,12 @@
 import client from "./client";
 
-export const POST_Research = async (people, view, camp, weather, other) => {
+export const POST_Research = async (people, view, camp, weather) => {
   try {
     const res = await client.post("/", {
       people: people,
       view: view,
       camp: camp,
       weather: weather,
-      other: other,
     });
 
     return res.data;

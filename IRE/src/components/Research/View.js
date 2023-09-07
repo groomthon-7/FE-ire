@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 
-const ViewCard = ({ text, img, selectedValue, setSelectedValue }) => {
-  const [clicked, setClicked] = useState("false");
+const ViewCard = ({ text, num, img, selectedValue, setSelectedValue }) => {
+  const [clicked, setClicked] = useState(false);
 
   const handleClick = () => {
     setClicked(!clicked);
@@ -18,8 +18,10 @@ const ViewCard = ({ text, img, selectedValue, setSelectedValue }) => {
 
   return (
     <Container onClick={handleClick} c={clicked}>
-      <Text c={clicked}>{text}</Text>
-      <Img src={img} />
+      <Text c={clicked} star={num === 2 ? "star" : ""}>
+        {text}
+      </Text>
+      {clicked ? <Img src={img[1]} /> : <Img src={img[0]} />}
     </Container>
   );
 };
@@ -38,7 +40,7 @@ const Text = styled.p`
   line-height: 26px;
   margin-left: 16px;
   margin-top: -125px;
-  color: "black";
+  color: ${(props) => (props.star === "star" ? "white" : "black")};
 `;
 
 const Container = styled.div`
@@ -48,7 +50,7 @@ const Container = styled.div`
   align-items: center;
   border-radius: 12px;
   border: 1px solid #f4f4f4;
-  background: ${(props) => (props.c === "false" ? "white" : "none")};
+  background: ${(props) => (props.c === false ? "white" : "none")};
   box-shadow: 0px 4px 14px 0px #f3f3f3;
   cursor: pointer;
   position: relative;
