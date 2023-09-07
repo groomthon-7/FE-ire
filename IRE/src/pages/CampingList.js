@@ -5,36 +5,13 @@ import CampingCard from '../components/CampingList/Card';
 import icon from '../assets/CampingList/Ellipse18.png';
 import { useEffect, useState } from 'react';
 import LayOut from '../components/common/layout';
-import {
-  getAllCampingApi,
-  getJejuCampingApi,
-  getSeogwipoCampingApi,
-} from '../api/getCampingList';
+import { getAllCampingApi } from '../api/getCampingList';
 
 import allData from './all';
 
 const CampingList = ({ category }) => {
-  const [activeButton, setActiveButton] = useState(0);
-
-  // const handleButtonClick = (buttonIndex) => {
-  //   setActiveButton(buttonIndex);
-  // };
-
   const showAllData = () => {
-    setActiveButton(0);
     const res = getAllCampingApi();
-    return res;
-  };
-
-  const showJejuData = () => {
-    setActiveButton(1);
-    const res = getJejuCampingApi();
-    return res;
-  };
-
-  const showSeowqiData = () => {
-    setActiveButton(2);
-    const res = getSeogwipoCampingApi();
     return res;
   };
 
@@ -43,22 +20,7 @@ const CampingList = ({ category }) => {
       <CampingListLayout>
         <Header>
           <ButtonContainer>
-            <Button
-              text='전체'
-              active={activeButton === 0 ? 'true' : 'false'}
-              onClick={showAllData}
-            />
-            <Button
-              text='제주시'
-              active={activeButton === 1 ? 'true' : 'false'}
-              onClick={showJejuData}
-            />
-
-            <Button
-              text='서귀포시'
-              active={activeButton === 2 ? 'true' : 'false'}
-              onClick={showSeowqiData}
-            />
+            <Button text='전체' active onClick={showAllData} />
           </ButtonContainer>
           <MapIcon src={icon} />
         </Header>

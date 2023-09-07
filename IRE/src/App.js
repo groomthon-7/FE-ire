@@ -24,7 +24,6 @@ function App() {
               path={staticServerUrl + '/research'}
               element={<Research />}
             />
-            <Route path={staticServerUrl + '/loading'} element={<Loading />} />
             <Route
               path={staticServerUrl + '/campingList/all'}
               element={<CampingList />}

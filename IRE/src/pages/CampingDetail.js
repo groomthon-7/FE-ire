@@ -7,8 +7,13 @@ import LayOut from '../components/common/layout';
 import Facility from '../components/CampingDetail/Facility';
 import Mart from '../components/CampingDetail/Mart';
 import Food from '../components/CampingDetail/Food';
+import { useLocation } from 'react-router-dom';
 
 const CampingDetail = () => {
+  const location = useLocation();
+
+  const data = { ...location.state };
+
   return (
     <div>
       <Back src={backButton} />
@@ -17,17 +22,17 @@ const CampingDetail = () => {
       <LayOut>
         <InfoContainer>
           <NameContainer>
-            <Name>성산 캠핑장</Name>
+            <Name>{data.businessName}</Name>
           </NameContainer>
           <DetailInfo>
             <DatailContainer>
               <Icon src={pin} />
-              <Text>제주시 성산읍 성산로 241</Text>
+              <Text>{data.address}</Text>
               <MapButton>지도보기</MapButton>
             </DatailContainer>
             <DatailContainer>
               <Icon src={phone} />
-              <Text>010-0000-0000</Text>
+              <Text></Text>
             </DatailContainer>
           </DetailInfo>
         </InfoContainer>

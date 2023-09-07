@@ -1,7 +1,7 @@
-import bg from "../assets/Research/bg.png";
-import styled from "styled-components";
-import Button from "../components/common/button";
-import { useNavigate } from "react-router-dom";
+import bg from '../assets/Research/bg.png';
+import styled from 'styled-components';
+import Button from '../components/common/button';
+import { useNavigate } from 'react-router-dom';
 
 const Main = () => {
   const navigate = useNavigate();
@@ -12,9 +12,9 @@ const Main = () => {
       <Content>도심의 복잡함에 어쩌구 저쩌구</Content>
       <BtnContainer>
         <Button
-          type="lg"
-          text="시작히기"
-          onClick={() => navigate("./research")}
+          type='lg'
+          text='시작히기'
+          onClick={() => navigate('./research')}
         />
       </BtnContainer>
     </Container>
@@ -43,7 +43,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   background-image: url(${bg});
-  background-size: 100vw 100vh;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   align-items: center;
 `;
 
