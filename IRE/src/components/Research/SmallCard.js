@@ -6,9 +6,6 @@ import { useSelector } from "react-redux";
 const SmallCard = ({ text, img, selectedValue, setSelectedValue }) => {
   const [clicked, setClicked] = useState("false");
 
-  const peopleValue = useSelector((state) => state.people); // 'people'는 Redux 스토어의 상태 이름에 맞게 수정
-  console.log("sdas", peopleValue);
-
   const handleClick = () => {
     setClicked(!clicked);
     setSelectedValue(text);
@@ -24,9 +21,17 @@ const SmallCard = ({ text, img, selectedValue, setSelectedValue }) => {
   return (
     <Container onClick={handleClick} c={clicked}>
       <Text c={clicked}>{text}</Text>
+      <Icon src={img} />
     </Container>
   );
 };
+
+const Icon = styled.img`
+  height: 32px;
+  margin-top: 3.5rem;
+  margin-left: auto;
+  margin-right: 5px;
+`;
 
 const Text = styled.p`
   color: var(--, #292929);

@@ -119,6 +119,7 @@ const Research = () => {
                 text={el.title}
                 selectedValue={selectedValue}
                 setSelectedValue={setSelectedValue}
+                img={el.img}
               />
             ))}
         </CardContainer>
