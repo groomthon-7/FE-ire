@@ -1,15 +1,15 @@
 import styled from 'styled-components';
-import icon from '../../assets/CampingList/Ellipse18.png';
+import icon from '../../assets/CampingList/Vector-Blue.png';
 
-const CampingCard = ({ src }) => {
+const CampingCard = ({ data }) => {
   return (
     <Card>
-      <CampImg src={src}></CampImg>
+      <CampImg style={{ backgroundImage: `url(${data.img})` }}></CampImg>
       <CampInfo>
-        <Name>성산 캠핑장</Name>
+        <Name>{data.businessName}</Name>
         <NameContainer>
           <CampIcon src={icon} />
-          <Address>제주특별시 성산읍 성산로 241</Address>
+          <Address>{data.address}</Address>
         </NameContainer>
       </CampInfo>
     </Card>
@@ -29,6 +29,11 @@ const Card = styled.div`
 
 const CampImg = styled.img`
   height: 11.56rem;
+  width: 100%;
+  background-size: 50px 30px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 12px 12px 0px 0px;
 `;
 
 const CampInfo = styled.div`
@@ -37,7 +42,7 @@ const CampInfo = styled.div`
 `;
 
 const CampIcon = styled.img`
-  width: 1rem;
+  width: 0.8rem;
   height: 1rem;
 
   margin-right: 0.25rem;
@@ -56,7 +61,7 @@ const Name = styled.div`
 `;
 
 const Address = styled.div`
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-style: normal;
 `;
 

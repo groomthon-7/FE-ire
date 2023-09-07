@@ -3,7 +3,6 @@ const initialState = {
   view: "",
   camp: "",
   weather: "",
-  other: [],
 };
 
 function OptionReducer(currentState = initialState, action) {
@@ -27,11 +26,6 @@ function OptionReducer(currentState = initialState, action) {
       return {
         ...currentState,
         weather: action.payload,
-      };
-    case "SET_OTHER":
-      return {
-        ...currentState,
-        other: action.payload,
       };
     default:
       return currentState;
