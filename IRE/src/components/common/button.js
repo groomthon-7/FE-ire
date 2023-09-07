@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { color } from "../../style/theme";
+import theme from "../../style/theme";
 
 const Button = ({ type, text, onClick }) => {
   return (
-    <Btn type={type} color={color} onClick={onClick}>
+    <Btn type={type} color={theme.color} onClick={onClick}>
       {text}
     </Btn>
   );

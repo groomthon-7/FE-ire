@@ -11,8 +11,8 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="App">
         <Routes>
-          <Route path={staticServerUrl + "/"} element={Research} />
-          <Route path={staticServerUrl + "/research"} />
+          <Route path={staticServerUrl + "/"} />
+          <Route path={staticServerUrl + "/research"} element={<Research />} />
           <Route path={staticServerUrl + "/campingList/all"} />
           <Route path={staticServerUrl + "/campingList/jeju"} />
           <Route path={staticServerUrl + "/campingList/seongwipo"} />
