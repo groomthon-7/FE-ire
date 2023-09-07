@@ -4,6 +4,7 @@ import CampingCard from '../components/CampingList/Card';
 
 import icon from '../assets/CampingList/Ellipse18.png';
 import { useState } from 'react';
+import LayOut from '../components/common/layout';
 
 const CampingList = ({ category }) => {
   const [activeButton, setActiveButton] = useState(0);
@@ -15,34 +16,36 @@ const CampingList = ({ category }) => {
   const showMap = () => {};
 
   return (
-    <CampingListLayout>
-      <Header>
-        <ButtonContainer>
-          <Button
-            text='전체'
-            active={activeButton === 0 ? 'true' : 'false'}
-            onClick={() => handleButtonClick(0)}
-          />
-          <Button
-            text='제주시'
-            active={activeButton === 1 ? 'true' : 'false'}
-            onClick={() => handleButtonClick(1)}
-          />
-          <Button
-            text='서귀포시'
-            active={activeButton === 2 ? 'true' : 'false'}
-            onClick={() => handleButtonClick(2)}
-          />
-        </ButtonContainer>
-        <MapIcon src={icon} onClick={showMap} />
-      </Header>
+    <LayOut>
+      <CampingListLayout>
+        <Header>
+          <ButtonContainer>
+            <Button
+              text='전체'
+              active={activeButton === 0 ? 'true' : 'false'}
+              onClick={() => handleButtonClick(0)}
+            />
+            <Button
+              text='제주시'
+              active={activeButton === 1 ? 'true' : 'false'}
+              onClick={() => handleButtonClick(1)}
+            />
+            <Button
+              text='서귀포시'
+              active={activeButton === 2 ? 'true' : 'false'}
+              onClick={() => handleButtonClick(2)}
+            />
+          </ButtonContainer>
+          <MapIcon src={icon} onClick={showMap} />
+        </Header>
 
-      <CampingListContainer>
-        <CampingCard />
-        <CampingCard />
-        <CampingCard />
-      </CampingListContainer>
-    </CampingListLayout>
+        <CampingListContainer>
+          <CampingCard />
+          <CampingCard />
+          <CampingCard />
+        </CampingListContainer>
+      </CampingListLayout>
+    </LayOut>
   );
 };
 
