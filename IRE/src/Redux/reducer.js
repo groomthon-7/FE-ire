@@ -8,7 +8,7 @@ const initialState = {
 
 function OptionReducer(currentState = initialState, action) {
   switch (action.type) {
-    case "SET_PEOPLRe":
+    case "SET_PEOPLE":
       return {
         ...currentState,
         people: action.payload,

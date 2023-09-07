@@ -1,24 +1,24 @@
-export const setParty = (with_who) => ({
-  type: "SET_PARTY",
-  payload: with_who,
+export const setPeople = (people) => ({
+  type: "SET_PEOPLE",
+  payload: people,
 });
 
-export const setAge = (age) => ({
-  type: "SET_AGE",
-  payload: age,
+export const setView = (view) => ({
+  type: "SET_VIEW",
+  payload: view,
 });
 
-export const setThemes = (themes) => ({
-  type: "SET_THEMES",
-  payload: themes,
+export const setCamp = (camp) => ({
+  type: "SET_CAMP",
+  payload: camp,
 });
 
-export const setBeginPeriod = (beginPeriod) => ({
-  type: "SET_BEGIN_PERIOD",
-  payload: beginPeriod,
+export const setWeather = (weather) => ({
+  type: "SET_WEATHER",
+  payload: weather,
 });
 
-export const setEndPeriod = (EndPeriod) => ({
-  type: "SET_END_PERIOD",
-  payload: EndPeriod,
+export const setOther = (other) => ({
+  type: "SET_OTHER",
+  payload: other,
 });
