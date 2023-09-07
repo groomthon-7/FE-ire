@@ -1,22 +1,26 @@
-import { useState, useEffect } from "react";
-import { researchData } from "../researchData";
-import styled from "styled-components";
-import Button from "../components/common/button";
-import ProgressBar from "../components/Research/ProgressBar";
-import SmallCard from "../components/Research/SmallCard";
-import MediumCard from "../components/Research/MediumCard";
-import { useDispatch } from "react-redux";
-import { setPeople, setView, setCamp, setWeather } from "../Redux/action";
-import ViewCard from "../components/Research/View";
-import LayOut from "../components/common/layout";
-import { useSelector } from "react-redux";
-import { POST_Research } from "../api/research";
-import alert from "../assets/Research/alert.png";
+import { useState, useEffect } from 'react';
+import { researchData } from '../researchData';
+import styled from 'styled-components';
+import Button from '../components/common/button';
+import ProgressBar from '../components/Research/ProgressBar';
+import SmallCard from '../components/Research/SmallCard';
+import MediumCard from '../components/Research/MediumCard';
+import { useDispatch } from 'react-redux';
+import { setPeople, setView, setCamp, setWeather } from '../Redux/action';
+import ViewCard from '../components/Research/View';
+import LayOut from '../components/common/layout';
+import { useSelector } from 'react-redux';
+import { POST_Research } from '../api/research';
+import alert from '../assets/Research/alert.png';
+import Loading from './Loading';
+import { useNavigate } from 'react-router-dom';
 
 const Research = () => {
   const [curPage, setCurPage] = useState(0); // 현 페이지 index
-  const [selectedValue, setSelectedValue] = useState(""); // 선택한 값
+  const [selectedValue, setSelectedValue] = useState(''); // 선택한 값
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   const people = useSelector((state) => state.people);
   const view = useSelector((state) => state.view);
   const weather = useSelector((state) => state.weather);
@@ -25,24 +29,28 @@ const Research = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const answer1List = ["혼자", "연인", "친구", "가족"];
-  const answer2List = ["바다", "들판", "별", "숲"];
-  const answer3List = ["텐트", "글램핑", "카라반", "상관없어요"];
-  const answer4List = ["봄", "여름", "가을", "겨울"];
+  const answer1List = ['혼자', '연인', '친구', '가족'];
+  const answer2List = ['바다', '들판', '별', '숲'];
+  const answer3List = ['텐트', '글램핑', '카라반', '상관없어요'];
+  const answer4List = ['봄', '여름', '가을', '겨울'];
+
+  const navigateList = () => {
+    navigate('/campingList/all');
+  };
 
   useEffect(() => {
-    if (selectedValue !== "") {
+    if (selectedValue !== '') {
       setIsOpen(false);
     }
   }, [selectedValue]);
 
   const NextBtn = () => {
-    if (selectedValue === "") {
+    if (selectedValue === '') {
       setIsOpen(true);
     } else if (curPage === 3) {
       const info = `people: ${people}, view: ${view}, camp: ${camp}, weather: ${weather}`;
 
-      const infos = info.split(", ");
+      const infos = info.split(', ');
 
       let infoIndex = 0;
 
@@ -57,21 +65,24 @@ const Research = () => {
       }
 
       if (infoIndex % 10 === 1 && Math.floor(infoIndex / 10) % 10 === 1) {
-        POST_Research(1);
+        POST_Research(setIsLoading, isLoading, 1);
+        navigateList();
       } else if (
         infoIndex % 10 === 1 &&
         Math.floor(infoIndex / 10) % 10 !== 1
       ) {
-        POST_Research(2);
+        POST_Research(setIsLoading, isLoading, 2);
+        navigateList();
       } else if (
         infoIndex % 10 !== 1 &&
         Math.floor(infoIndex / 10) % 10 === 1
       ) {
-        POST_Research(3);
+        POST_Research(setIsLoading, isLoading, 3);
+        navigateList();
       } else {
-        POST_Research(4);
+        POST_Research(setIsLoading, isLoading, 4);
+        navigateList();
       }
-
     } else {
       setCurPage(curPage + 1);
 
@@ -121,54 +132,58 @@ const Research = () => {
 
   return (
     <LayOut>
-      <Container>
-        <ProgressBar complete={curPage + 1} />
-        <Title>{researchData[curPage].questions}</Title>
-        <CardContainer>
-          {curPage === 1 &&
-            researchData[curPage].contents.map((el, idx) => (
-              <ViewCard
-                key={idx}
-                num={idx}
-                text={el.title}
-                selectedValue={selectedValue}
-                setSelectedValue={setSelectedValue}
-                img={el.img}
-              />
-            ))}
-          {curPage === 3 &&
-            researchData[curPage].contents.map((el, idx) => (
-              <MediumCard
-                key={idx}
-                text={el.title}
-                selectedValue={selectedValue}
-                setSelectedValue={setSelectedValue}
-                img={el.img}
-              />
-            ))}
-          {(curPage === 2 || curPage === 0) &&
-            researchData[curPage].contents.map((el, idx) => (
-              <SmallCard
-                key={idx}
-                text={el.title}
-                selectedValue={selectedValue}
-                setSelectedValue={setSelectedValue}
-                img={el.img}
-              />
-            ))}
-        </CardContainer>
-        {isOpen && <Alert src={alert} onClick={() => setIsOpen(false)} />}
-        {curPage === 0 ? (
-          <BtnContainer>
-            <Button type='lg' text='다음' onClick={NextBtn} />
-          </BtnContainer>
-        ) : (
-          <BtnContainer>
-            <Button type='sm' text='이전' onClick={PrevBtn} />
-            <Button type='md' text='다음' onClick={NextBtn} />
-          </BtnContainer>
-        )}
-      </Container>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <Container>
+          <ProgressBar complete={curPage + 1} />
+          <Title>{researchData[curPage].questions}</Title>
+          <CardContainer>
+            {curPage === 1 &&
+              researchData[curPage].contents.map((el, idx) => (
+                <ViewCard
+                  key={idx}
+                  num={idx}
+                  text={el.title}
+                  selectedValue={selectedValue}
+                  setSelectedValue={setSelectedValue}
+                  img={el.img}
+                />
+              ))}
+            {curPage === 3 &&
+              researchData[curPage].contents.map((el, idx) => (
+                <MediumCard
+                  key={idx}
+                  text={el.title}
+                  selectedValue={selectedValue}
+                  setSelectedValue={setSelectedValue}
+                  img={el.img}
+                />
+              ))}
+            {(curPage === 2 || curPage === 0) &&
+              researchData[curPage].contents.map((el, idx) => (
+                <SmallCard
+                  key={idx}
+                  text={el.title}
+                  selectedValue={selectedValue}
+                  setSelectedValue={setSelectedValue}
+                  img={el.img}
+                />
+              ))}
+          </CardContainer>
+          {isOpen && <Alert src={alert} onClick={() => setIsOpen(false)} />}
+          {curPage === 0 ? (
+            <BtnContainer>
+              <Button type='lg' text='다음' onClick={NextBtn} />
+            </BtnContainer>
+          ) : (
+            <BtnContainer>
+              <Button type='sm' text='이전' onClick={PrevBtn} />
+              <Button type='md' text='다음' onClick={NextBtn} />
+            </BtnContainer>
+          )}
+        </Container>
+      )}
     </LayOut>
   );
 };

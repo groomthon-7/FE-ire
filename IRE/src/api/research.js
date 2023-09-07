@@ -1,14 +1,12 @@
-import client from "./client";
+import client from './client';
 
-export const POST_Research = async (people, view, camp, weather) => {
+export const POST_Research = async (setIsLoading, isLoading, tag) => {
   try {
-    const res = await client.post("/", {
-      people: people,
-      view: view,
-      camp: camp,
-      weather: weather,
+    setIsLoading(true);
+    const res = await client.post('/ques/getTag', {
+      tag: tag,
     });
-
+    setIsLoading(false);
     return res.data;
   } catch (err) {
     console.log(err);
