@@ -20,7 +20,7 @@ const MediumCard = ({ text, img, selectedValue, setSelectedValue }) => {
   return (
     <Container onClick={handleClick} c={clicked}>
       <Text c={clicked}>{text}</Text>
-      <Img src={img} />
+      {clicked ? <Img src={img[1]} /> : <Img src={img[0]} />}
     </Container>
   );
 };

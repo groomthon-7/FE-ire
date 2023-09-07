@@ -24,6 +24,7 @@ const Btn = styled.button`
   color: ${(props) => (props.type === "sm" ? "#727272" : "white")};
   font-size: 16px;
   font-weight: 700;
+  cursor: pointer;
 `;
 
 export default Button;
