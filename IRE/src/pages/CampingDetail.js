@@ -1,13 +1,13 @@
-import { styled } from 'styled-components';
-import backButton from '../assets/CampingDetail/chevron-left.png';
-import thumnail from '../assets/CampingDetail/Frame 1000003974.png';
-import phone from '../assets/CampingDetail/phone.png';
-import pin from '../assets/CampingDetail/pin.png';
-import LayOut from '../components/common/layout';
-import Facility from '../components/CampingDetail/Facility';
-import Mart from '../components/CampingDetail/Mart';
-import Food from '../components/CampingDetail/Food';
-import { useLocation } from 'react-router-dom';
+import { styled } from "styled-components";
+import backButton from "../assets/CampingDetail/chevron-left.png";
+import thumnail from "../assets/CampingDetail/Frame 1000003974.png";
+import phone from "../assets/CampingDetail/phone.png";
+import pin from "../assets/CampingDetail/pin.png";
+import LayOut from "../components/common/layout";
+import Facility from "../components/CampingDetail/Facility";
+import Mart from "../components/CampingDetail/Mart";
+import Food from "../components/CampingDetail/Food";
+import { useLocation } from "react-router-dom";
 
 const CampingDetail = () => {
   const location = useLocation();
@@ -17,7 +17,9 @@ const CampingDetail = () => {
   return (
     <div>
       <Back src={backButton} />
-      <CampImg src={thumnail} />
+      <Template>
+        <CampImg src={thumnail} />
+      </Template>
 
       <LayOut>
         <InfoContainer>
@@ -88,6 +90,12 @@ const CampingDetail = () => {
   );
 };
 
+const Template = styled.div`
+  width: 375px;
+  position: absolute;
+  top: 0;
+`;
+
 const Back = styled.img`
   width: 1.5rem;
   height: 1.5rem;
@@ -96,18 +104,15 @@ const Back = styled.img`
 `;
 
 const CampImg = styled.img`
-  position: absolute;
   height: 22.75rem;
-  width: 100vw;
+  width: 100%;
   z-index: -1;
-  top: 0;
-  left: 0;
 `;
 
 const NameContainer = styled.div`
   font-size: 1.25rem;
   font-weight: 700;
-  margin-top: ${(props) => (props.mart ? '1rem' : '21rem')};
+  margin-top: ${(props) => (props.mart ? "1rem" : "21rem")};
 `;
 
 const Name = styled.div`
