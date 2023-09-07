@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import CampingList from './pages/CampingList';
 import CampingMap from './pages/CampingMap';
+import Loading from './pages/Loading';
 
 const staticServerUrl = process.env.REACT_APP_PATH || '';
 
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path={staticServerUrl + '/'} />
           <Route path={staticServerUrl + '/research'} />
+          <Route path={staticServerUrl + '/loading'} element={<Loading />} />
           <Route
             path={staticServerUrl + '/campingList/all'}
             element={<CampingList />}
