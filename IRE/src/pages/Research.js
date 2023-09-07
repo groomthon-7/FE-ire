@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { researchData } from "../researchData";
 import styled from "styled-components";
 import Button from "../components/common/button";
@@ -6,33 +6,70 @@ import ProgressBar from "../components/Research/ProgressBar";
 import SmallCard from "../components/Research/SmallCard";
 import MediumCard from "../components/Research/MediumCard";
 import { useDispatch } from "react-redux";
-import {
-  setPeople,
-  setView,
-  setCamp,
-  setWeather,
-  setOther,
-} from "../Redux/action";
+import { setPeople, setView, setCamp, setWeather } from "../Redux/action";
 import ViewCard from "../components/Research/View";
 import LayOut from "../components/common/layout";
 import { useSelector } from "react-redux";
 import { POST_Research } from "../api/research";
-import LongBtn from "../components/Research/LongBtn";
+import alert from "../assets/Research/alert.png";
 
 const Research = () => {
   const [curPage, setCurPage] = useState(0); // 현 페이지 index
   const [selectedValue, setSelectedValue] = useState(""); // 선택한 값
+  const [isOpen, setIsOpen] = useState(false);
   const people = useSelector((state) => state.people);
   const view = useSelector((state) => state.view);
   const weather = useSelector((state) => state.weather);
-  const other = useSelector((state) => state.other);
   const camp = useSelector((state) => state.camp);
 
   const dispatch = useDispatch();
 
+  const answer1List = ["혼자", "연인", "친구", "가족"];
+  const answer2List = ["바다", "들판", "별", "숲"];
+  const answer3List = ["텐트", "글램핑", "카라반", "상관없어요"];
+  const answer4List = ["봄", "여름", "가을", "겨울"];
+
+  useEffect(() => {
+    if (selectedValue !== "") {
+      setIsOpen(false);
+    }
+  }, [selectedValue]);
+
   const NextBtn = () => {
-    if (curPage === 5) {
-      POST_Research(people, view, camp, weather, other);
+    if (selectedValue === "") {
+      setIsOpen(true);
+    } else if (curPage === 3) {
+      const info = `people: ${people}, view: ${view}, camp: ${camp}, weather: ${weather}`;
+
+      const infos = info.split(", ");
+
+      let infoIndex = 0;
+
+      for (let i = 0; i < [answer1List, answer2List, answer3List].length; i++) {
+        const answerList = [answer1List, answer2List, answer3List][i];
+        for (const answer of answerList) {
+          if (infos[i].substring(6) === answer) {
+            const num = (answerList.indexOf(answer) + 1) * Math.pow(10, 2 - i);
+            infoIndex += num;
+          }
+        }
+      }
+
+      if (infoIndex % 10 === 1 && Math.floor(infoIndex / 10) % 10 === 1) {
+        POST_Research(1);
+      } else if (
+        infoIndex % 10 === 1 &&
+        Math.floor(infoIndex / 10) % 10 !== 1
+      ) {
+        POST_Research(2);
+      } else if (
+        infoIndex % 10 !== 1 &&
+        Math.floor(infoIndex / 10) % 10 === 1
+      ) {
+        POST_Research(3);
+      } else {
+        POST_Research(4);
+      }
     } else {
       setCurPage(curPage + 1);
 
@@ -48,9 +85,6 @@ const Research = () => {
           break;
         case 3:
           dispatch(setWeather(selectedValue));
-          break;
-        case 4:
-          dispatch(setOther(selectedValue));
           break;
         default:
           break;
@@ -76,9 +110,6 @@ const Research = () => {
       case 3:
         dispatch(setWeather(selectedValue));
         break;
-      case 4:
-        dispatch(setOther(selectedValue));
-        break;
       default:
         break;
     }
@@ -96,6 +127,7 @@ const Research = () => {
             researchData[curPage].contents.map((el, idx) => (
               <ViewCard
                 key={idx}
+                num={idx}
                 text={el.title}
                 selectedValue={selectedValue}
                 setSelectedValue={setSelectedValue}
@@ -112,9 +144,7 @@ const Research = () => {
                 img={el.img}
               />
             ))}
-          {curPage !== 1 &&
-            curPage !== 3 &&
-            curPage !== 4 &&
+          {(curPage === 2 || curPage === 0) &&
             researchData[curPage].contents.map((el, idx) => (
               <SmallCard
                 key={idx}
@@ -125,16 +155,7 @@ const Research = () => {
               />
             ))}
         </CardContainer>
-        {curPage === 4 &&
-          researchData[curPage].contents.map((el, idx) => (
-            <LongBtn
-              key={idx}
-              text={el.title}
-              selectedValue={selectedValue}
-              setSelectedValue={setSelectedValue}
-            />
-          ))}
-
+        {isOpen && <Alert src={alert} onClick={() => setIsOpen(false)} />}
         {curPage === 0 ? (
           <BtnContainer>
             <Button type="lg" text="다음" onClick={NextBtn} />
@@ -149,6 +170,12 @@ const Research = () => {
     </LayOut>
   );
 };
+
+const Alert = styled.img`
+  width: 100%;
+  margin-top: auto;
+  cursor: pointer;
+`;
 
 const BtnContainer = styled.div`
   display: flex;

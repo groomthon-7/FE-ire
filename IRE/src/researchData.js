@@ -6,26 +6,34 @@ import tent from "./assets/Research/tent.png";
 import glamping from "./assets/Research/glamping.png";
 import caraban from "./assets/Research/caraban.png";
 import all from "./assets/Research/q.png";
+import solo from "./assets/Research/solo.png";
+import couple from "./assets/Research/couple.png";
+import friend from "./assets/Research/friend.png";
+import family from "./assets/Research/family.png";
+import inactiveOcean from "./assets/Research/1.png";
+import inactiveYard from "./assets/Research/2.png";
+import inactiveStar from "./assets/Research/3.png";
+import inactiveForest from "./assets/Research/4_gray.png";
 
 export const researchData = [
   {
     index: 0,
     questions: "누구와 함께 가시나요?",
     contents: [
-      { title: "혼자", img: "" },
-      { title: "친구", img: "" },
-      { title: "연인", img: "" },
-      { title: "가족", img: "" },
+      { title: "혼자", img: solo },
+      { title: "연인", img: couple },
+      { title: "친구", img: friend },
+      { title: "가족", img: family },
     ],
   },
   {
     index: 1,
     questions: "어떤 자연 환경을 선호하시나요?",
     contents: [
-      { title: "바다", img: ocean },
-      { title: "들판", img: yard },
-      { title: "별", img: star },
-      { title: "숲", img: forest },
+      { title: "바다", img: [ocean, inactiveOcean] },
+      { title: "들판", img: [yard, inactiveYard] },
+      { title: "별", img: [star, inactiveStar] },
+      { title: "숲", img: [forest, inactiveForest] },
     ],
   },
   {
@@ -46,17 +54,6 @@ export const researchData = [
       { title: "여름", img: "" },
       { title: "가을", img: "" },
       { title: "겨울", img: "" },
-    ],
-  },
-  {
-    index: 4,
-    questions: `마지막으로 
-    참고하면 좋을 사항이 있나요?`,
-    contents: [
-      { title: "애완동물을 동반하고 싶어요.", img: "" },
-      { title: "바베큐장이 있으면 좋겠어요.", img: "" },
-      { title: "물놀이장이 있으면 좋겠어요.", img: "" },
-      { title: "화장실이 있으면 좋겠어요.", img: "" },
     ],
   },
 ];
