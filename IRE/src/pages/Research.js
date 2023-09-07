@@ -15,14 +15,23 @@ import {
 } from "../Redux/action";
 import ViewCard from "../components/Research/View";
 import LayOut from "../components/common/layout";
+import { useSelector } from "react-redux";
+import { POST_Research } from "../api/research";
 
 const Research = () => {
   const [curPage, setCurPage] = useState(0); // 현 페이지 index
   const [selectedValue, setSelectedValue] = useState(""); // 선택한 값
+  const people = useSelector((state) => state.people);
+  const view = useSelector((state) => state.view);
+  const weather = useSelector((state) => state.weather);
+  const other = useSelector((state) => state.other);
+  const camp = useSelector((state) => state.camp);
+
   const dispatch = useDispatch();
 
   const NextBtn = () => {
     if (curPage === 5) {
+      POST_Research(people, view, camp, weather, other);
     } else {
       setCurPage(curPage + 1);
 
