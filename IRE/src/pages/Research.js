@@ -70,21 +70,25 @@ const Research = () => {
 
       if (infoIndex % 10 === 1 && Math.floor(infoIndex / 10) % 10 === 1) {
         const data = POST_Research(setIsLoading, isLoading, 1);
+        console.log("데이터!", data);
         navigateList(data);
       } else if (
         infoIndex % 10 === 1 &&
         Math.floor(infoIndex / 10) % 10 !== 1
       ) {
         const data = POST_Research(setIsLoading, isLoading, 2);
+        console.log("데이터!", data);
         navigateList(data);
       } else if (
         infoIndex % 10 !== 1 &&
         Math.floor(infoIndex / 10) % 10 === 1
       ) {
         const data = POST_Research(setIsLoading, isLoading, 3);
+        console.log("데이터!", data);
         navigateList(data);
       } else {
         const data = POST_Research(setIsLoading, isLoading, 4);
+        console.log("데이터!", data);
         navigateList(data);
       }
     } else {
