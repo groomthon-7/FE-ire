@@ -8,8 +8,8 @@ const Main = () => {
 
   return (
     <Container>
-      <Title>캠핑하러 이레옵써</Title>
-      <Content>도심의 복잡함에 지친 캠핑족들을 위한 맞춤형 캠핑장 추천</Content>
+      <Title>이레옵써</Title>
+      <Content>고요한 당신에게 어울리는 휴식</Content>
 
       <BtnContainer>
         <Button
