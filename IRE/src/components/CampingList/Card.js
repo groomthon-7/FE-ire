@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import icon from "../../assets/CampingList/Vector-Blue.png";
 
-const CampingCard = (data) => {
+const CampingCard = ({ data }) => {
   return (
     <Card>
       <CampImg style={{ backgroundImage: `url(${data.img})` }}></CampImg>
