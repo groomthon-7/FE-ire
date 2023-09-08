@@ -1,58 +1,55 @@
-import { styled } from 'styled-components';
-import backButton from '../assets/CampingDetail/chevron-left.png';
-import thumnail from '../assets/CampingDetail/Frame 1000003974.png';
-import phone from '../assets/CampingDetail/phone.png';
-import pin from '../assets/CampingDetail/pin.png';
-import LayOut from '../components/common/layout';
-import Facility from '../components/CampingDetail/Facility';
-import Mart from '../components/CampingDetail/Mart';
-import Food from '../components/CampingDetail/Food';
-import { useLocation } from 'react-router-dom';
+import { styled } from "styled-components";
+import backButton from "../assets/CampingDetail/chevron-left.png";
+import thumnail from "../assets/CampingDetail/Frame 1000003974.png";
+import phone from "../assets/CampingDetail/phone.png";
+import pin from "../assets/CampingDetail/pin.png";
+import LayOut from "../components/common/layout";
+import Facility from "../components/CampingDetail/Facility";
+import Mart from "../components/CampingDetail/Mart";
+import Food from "../components/CampingDetail/Food";
+import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { getDetail } from "../api/getlist";
+import { useEffect, useState } from "react";
+import icons from "../assets/CampingDetail/icons.png";
 
 const CampingDetail = () => {
   const location = useLocation();
+  const [detailData, setDetailData] = useState([]);
 
-  const data = { ...location.state };
+  const { id } = location.state || {};
 
-  const moveToMap = ({ url }) => {
-    window.open(url, '_blank', 'noopener, noreferrer');
-  };
+  useEffect(() => {
+    const res = getDetail(id);
+    setDetailData(res);
+  }, []);
+
+  const navigate = useNavigate();
 
   return (
     <div>
       <Template>
-        <Back src={backButton} />
-        <CampImg src={thumnail} />
+        <Back src={backButton} onClick={() => navigate(-1)} />
+        <CampImg style={{ backgroundImage: `url(${detailData.img})` }} />
       </Template>
-
       <LayOut>
         <InfoContainer>
           <NameContainer>
-            <Name>{data.businessName}</Name>
+            <Name>{detailData.businessName}</Name>
           </NameContainer>
           <DetailInfo>
             <DatailContainer>
               <Icon src={pin} />
-              <Text>{data.address}</Text>
-              <MapButton onClick={moveToMap('https://camfit.co.kr/')}>
-                지도보기
-              </MapButton>
+              <Text>{detailData.address}</Text>
             </DatailContainer>
             <DatailContainer>
               <Icon src={phone} />
-              <Text></Text>
+              <Text>{detailData.phone}</Text>
             </DatailContainer>
           </DetailInfo>
         </InfoContainer>
         <Hr />
-
-        <FacilityContainer>
-          <Facility />
-          <Facility />
-          <Facility />
-          <Facility />
-          <Facility />
-        </FacilityContainer>
+        <FacilityContainer src={icons} />
       </LayOut>
       <GrayBox />
 
@@ -119,7 +116,7 @@ const CampImg = styled.img`
 const NameContainer = styled.div`
   font-size: 1.25rem;
   font-weight: 700;
-  margin-top: ${(props) => (props.mart ? '1rem' : '21rem')};
+  margin-top: ${(props) => (props.mart ? "1rem" : "21rem")};
 `;
 
 const Name = styled.div`
@@ -166,8 +163,9 @@ const Hr = styled.hr`
   border-top: 1px solid #ececec;
 `;
 
-const FacilityContainer = styled.div`
-  display: flex;
+const FacilityContainer = styled.img`
+  width: 100%;
+  height: 48px;
 `;
 
 const GrayBox = styled.div`

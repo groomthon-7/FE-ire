@@ -50,7 +50,6 @@ const CampingList = () => {
             // }
           /> */}
         </Header>
-
         <CampingListContainer>
           {data.map((item) => (
             <CampingCard data={item} />
