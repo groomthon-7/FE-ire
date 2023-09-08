@@ -52,9 +52,9 @@ const CampingList = () => {
         </Header>
 
         <CampingListContainer>
-          {data.map((item) => (
+          {/* {data.map((item) => (
             <CampingCard data={item} />
-          ))}
+          ))} */}
         </CampingListContainer>
       </CampingListLayout>
     </LayOut>
