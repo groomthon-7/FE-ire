@@ -37,11 +37,8 @@ const Research = () => {
   const staticServerUrl = process.env.REACT_APP_PATH || "";
 
   const navigateList = (data) => {
-    navigate(`${staticServerUrl}/campingList/all`, {
-      state: {
-        ...data,
-      },
-    });
+    localStorage.setItem("data", data);
+    navigate(`${staticServerUrl}/campingList/all`, { state: { data: data } });
   };
 
   useEffect(() => {

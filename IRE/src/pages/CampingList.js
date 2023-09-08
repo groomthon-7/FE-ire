@@ -14,7 +14,7 @@ import { useLocation } from "react-router-dom";
 const CampingList = () => {
   const location = useLocation();
 
-  const data = { ...location.state };
+  const { data } = location.state || {};
 
   console.log("캠핑리스트", data);
 
