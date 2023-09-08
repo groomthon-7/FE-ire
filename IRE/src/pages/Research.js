@@ -47,7 +47,7 @@ const Research = () => {
     }
   }, [selectedValue]);
 
-  const NextBtn = () => {
+  const NextBtn = async () => {
     if (selectedValue === "") {
       setIsOpen(true);
     } else if (curPage === 3) {
@@ -68,25 +68,25 @@ const Research = () => {
       }
 
       if (infoIndex % 10 === 1 && Math.floor(infoIndex / 10) % 10 === 1) {
-        const data = POST_Research(setIsLoading, isLoading, 1);
+        const data = await POST_Research(setIsLoading, isLoading, 1);
         console.log("데이터!", data);
         navigateList(data);
       } else if (
         infoIndex % 10 === 1 &&
         Math.floor(infoIndex / 10) % 10 !== 1
       ) {
-        const data = POST_Research(setIsLoading, isLoading, 2);
+        const data = await POST_Research(setIsLoading, isLoading, 2);
         console.log("데이터!", data);
         navigateList(data);
       } else if (
         infoIndex % 10 !== 1 &&
         Math.floor(infoIndex / 10) % 10 === 1
       ) {
-        const data = POST_Research(setIsLoading, isLoading, 3);
+        const data = await POST_Research(setIsLoading, isLoading, 3);
         console.log("데이터!", data);
         navigateList(data);
       } else {
-        const data = POST_Research(setIsLoading, isLoading, 4);
+        const data = await POST_Research(setIsLoading, isLoading, 4);
         console.log("데이터!", data);
         navigateList(data);
       }
