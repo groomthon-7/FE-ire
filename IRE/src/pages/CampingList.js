@@ -1,20 +1,22 @@
-import styled from 'styled-components';
-import Button from '../components/CampingList/Button';
-import CampingCard from '../components/CampingList/Card';
+import styled from "styled-components";
+import Button from "../components/CampingList/Button";
+import CampingCard from "../components/CampingList/Card";
 
-import icon from '../assets/CampingList/Ellipse18.png';
-import { useEffect, useState } from 'react';
-import LayOut from '../components/common/layout';
-import { getAllCampingApi } from '../api/getCampingList';
+import icon from "../assets/CampingList/Ellipse18.png";
+import { useEffect, useState } from "react";
+import LayOut from "../components/common/layout";
+import { getAllCampingApi } from "../api/getCampingList";
 
-import allData from './all';
-import { useNavigate } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import allData from "./all";
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-const CampingList = ({ category }) => {
+const CampingList = () => {
   const location = useLocation();
 
   const data = { ...location.state };
+
+  console.log("캠핑리스트", data);
 
   // const filteredData = allData.map((el, idx) => ({
   //   businessName: el.businessName,
@@ -33,9 +35,9 @@ const CampingList = ({ category }) => {
       <CampingListLayout>
         <Header>
           <ButtonContainer>
-            <Button text='전체' active />
+            <Button text="전체" active />
           </ButtonContainer>
-          <MapIcon
+          {/* <MapIcon
             src={icon}
             // onClick={() =>
             //   navigate('/campingMap', {
@@ -46,7 +48,7 @@ const CampingList = ({ category }) => {
             //     },
             //   })
             // }
-          />
+          /> */}
         </Header>
 
         <CampingListContainer>
