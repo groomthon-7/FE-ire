@@ -12,12 +12,14 @@ import { useNavigate } from "react-router-dom";
 import { getDetail } from "../api/getlist";
 import { useEffect, useState } from "react";
 import icons from "../assets/CampingDetail/icons.png";
+import { useParams } from "react-router-dom";
 
 const CampingDetail = () => {
   const location = useLocation();
   const [detailData, setDetailData] = useState([]);
 
-  const { id } = location.state || {};
+  // const { id } = location.state || {};
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
