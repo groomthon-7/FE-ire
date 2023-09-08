@@ -1,7 +1,7 @@
-import bg from '../assets/Research/bg.png';
-import styled from 'styled-components';
-import Button from '../components/common/button';
-import { useNavigate } from 'react-router-dom';
+import bg from "../assets/Research/bg.png";
+import styled from "styled-components";
+import Button from "../components/common/button";
+import { useNavigate } from "react-router-dom";
 
 const Main = () => {
   const navigate = useNavigate();
@@ -9,12 +9,12 @@ const Main = () => {
   return (
     <Container>
       <Title>캠핑하러 이레옵써</Title>
-      <Content>도심의 복잡함에 어쩌구 저쩌구</Content>
+      <Content>도심의 복잡함에 지친 캠핑족들을 위한 맞춤형 캠핑장 추천</Content>
       <BtnContainer>
         <Button
-          type='lg'
-          text='시작히기'
-          onClick={() => navigate('./research')}
+          type="lg"
+          text="시작하기"
+          onClick={() => navigate("./research")}
         />
       </BtnContainer>
     </Container>

@@ -35,7 +35,7 @@ const Research = () => {
   const answer4List = ["봄", "여름", "가을", "겨울"];
 
   const navigateList = (data) => {
-    navigate("/campingList/all", {
+    navigate("./campingList/all", {
       state: {
         ...data,
       },
