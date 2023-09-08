@@ -1,17 +1,17 @@
 import client from "./client";
 
-export const getList = (id) => {
+export const getList = async (id) => {
   try {
-    const res = client.get("/ques/all", { params: { id: id } });
+    const res = await client.get("/ques/all", { params: { id: id } });
     return res.data;
   } catch (err) {
     throw err;
   }
 };
 
-export const getDetail = (id) => {
+export const getDetail = async (id) => {
   try {
-    const res = client.get("/details", { params: { id: id } });
+    const res = await client.get("/details", { params: { id: id } });
     return res.data;
   } catch (err) {
     throw err;
