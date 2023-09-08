@@ -10,6 +10,7 @@ const Main = () => {
     <Container>
       <Title>캠핑하러 이레옵써</Title>
       <Content>도심의 복잡함에 지친 캠핑족들을 위한 맞춤형 캠핑장 추천</Content>
+
       <BtnContainer>
         <Button
           type="lg"

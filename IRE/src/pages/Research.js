@@ -34,8 +34,10 @@ const Research = () => {
   const answer3List = ["텐트", "글램핑", "카라반", "상관없어요"];
   const answer4List = ["봄", "여름", "가을", "겨울"];
 
+  const staticServerUrl = process.env.REACT_APP_PATH || "";
+
   const navigateList = (data) => {
-    navigate("./campingList/all", {
+    navigate(`${staticServerUrl}/campingList/all`, {
       state: {
         ...data,
       },
