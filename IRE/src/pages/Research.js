@@ -69,22 +69,22 @@ const Research = () => {
       }
 
       if (infoIndex % 10 === 1 && Math.floor(infoIndex / 10) % 10 === 1) {
-        const data = POST_Research(setIsLoading, isLoading, "1");
+        const data = POST_Research(setIsLoading, isLoading, 1);
         navigateList(data);
       } else if (
         infoIndex % 10 === 1 &&
         Math.floor(infoIndex / 10) % 10 !== 1
       ) {
-        const data = POST_Research(setIsLoading, isLoading, "2");
+        const data = POST_Research(setIsLoading, isLoading, 2);
         navigateList(data);
       } else if (
         infoIndex % 10 !== 1 &&
         Math.floor(infoIndex / 10) % 10 === 1
       ) {
-        const data = POST_Research(setIsLoading, isLoading, "3");
+        const data = POST_Research(setIsLoading, isLoading, 3);
         navigateList(data);
       } else {
-        const data = POST_Research(setIsLoading, isLoading, "4");
+        const data = POST_Research(setIsLoading, isLoading, 4);
         navigateList(data);
       }
     } else {
