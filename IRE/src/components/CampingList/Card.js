@@ -13,7 +13,7 @@ const CampingCard = ({ data }) => {
   };
 
   return (
-    <Card onClick={navigateDetail}>
+    <Card onClick={() => navigateDetail(data)}>
       <CampImg style={{ backgroundImage: `url(${data.img})` }}></CampImg>
       <CampInfo>
         <Name>{data.businessName}</Name>
