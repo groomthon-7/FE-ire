@@ -3,12 +3,8 @@ import React, { useRef, useEffect } from 'react';
 
 const { kakao } = window;
 
-console.log(kakao);
-
 // position 파라미터 받아오기
-const KakaoMap = () => {
-  // const container = useRef(null);
-
+const KakaoMap = ({ data }) => {
   useEffect(() => {
     var container = document.getElementById('map');
     var options = {
