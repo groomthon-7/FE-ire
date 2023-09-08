@@ -20,8 +20,13 @@ const CampingDetail = () => {
   const { id } = location.state || {};
 
   useEffect(() => {
-    const res = getDetail(id);
-    setDetailData(res);
+    const fetchData = async () => {
+      const res = await getDetail(id);
+      setDetailData(res);
+      console.log("디테일 데이터", res);
+    };
+
+    fetchData();
   }, []);
 
   const navigate = useNavigate();
@@ -38,10 +43,10 @@ const CampingDetail = () => {
             <Name>{detailData.businessName}</Name>
           </NameContainer>
           <DetailInfo>
-            <DatailContainer>
-              <Icon src={pin} />
-              <Text>{detailData.address}</Text>
-            </DatailContainer>
+            {/* <DatailContainer> */}
+            {/* <Icon src={pin} /> */}
+            {/* <Text>{detailData.address}</Text> */}
+            {/* </DatailContainer> */}
             <DatailContainer>
               <Icon src={phone} />
               <Text>{detailData.phone}</Text>
