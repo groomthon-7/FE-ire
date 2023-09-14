@@ -18,7 +18,9 @@ const Btn = styled.button`
       : '4.75rem'};
   height: 3rem;
   background-color: ${(props) =>
-    props.type === 'sm' ? '#FFF' : props.theme.color.mainColor};
+    props.type === 'sm'
+      ? props.theme.color.white
+      : props.theme.color.mainColor};
   border: ${(props) => (props.type === 'sm' ? '1px solid #D2D2D2' : 'none')};
   border-radius: 8px;
   color: ${(props) => (props.type === 'sm' ? '#727272' : 'white')};
