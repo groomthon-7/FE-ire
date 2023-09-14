@@ -5,7 +5,7 @@ const color = {
   darkGray: '#8D8D8D',
   semiGray: '#EDEDED',
   white: '#FFFFFF',
-   mainColor: "#18436B"
+  mainColor: '#18436B',
 };
 const margin = {};
 

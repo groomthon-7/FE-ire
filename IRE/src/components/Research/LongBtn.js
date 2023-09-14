@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import { useState, useEffect } from "react";
-import theme from "../../style/theme";
+import styled from 'styled-components';
+import { useState, useEffect } from 'react';
+import theme from '../../style/theme';
 
 const LongBtn = ({ text, selectedValue, setSelectedValue }) => {
-  const [clicked, setClicked] = useState("false");
+  const [clicked, setClicked] = useState('false');
 
   const handleClick = () => {
     setClicked(!clicked);
@@ -13,7 +13,7 @@ const LongBtn = ({ text, selectedValue, setSelectedValue }) => {
   // 중복 선택 제한
   useEffect(() => {
     if (text !== selectedValue) {
-      setClicked("false");
+      setClicked('false');
     }
   }, [selectedValue]);
 
@@ -34,7 +34,7 @@ const Text = styled.p`
   font-weight: 700;
   line-height: 26px;
   margin-left: 16px;
-  color: ${(props) => (props.c === "false" ? "black" : "white")};
+  color: ${(props) => (props.c === 'false' ? 'black' : 'white')};
 `;
 
 const Container = styled.div`
@@ -46,7 +46,7 @@ const Container = styled.div`
   border-radius: 8px;
   border: 1px solid #eaeaea;
   background: ${(props) =>
-    props.c === "false" ? "white" : theme.color.mainColor};
+    props.c === 'false' ? 'white' : theme.color.mainColor};
   box-shadow: 0px 4px 14px 0px #f3f3f3;
   margin-bottom: 12px;
 `;

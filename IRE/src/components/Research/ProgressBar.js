@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import circle1 from "../../assets/Research/circle1.png";
-import circle2 from "../../assets/Research/circle2.png";
+import styled from 'styled-components';
+import circle1 from '../../assets/Research/circle1.png';
+import circle2 from '../../assets/Research/circle2.png';
 
 const ProgressBar = ({ complete }) => {
   return (

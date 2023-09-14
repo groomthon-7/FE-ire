@@ -1,5 +1,5 @@
-import { GETTest } from "./api/test";
-import { useEffect } from "react";
+import { GETTest } from './api/test';
+import { useEffect } from 'react';
 
 const Test = () => {
   useEffect(() => {

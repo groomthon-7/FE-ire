@@ -1,18 +1,8 @@
-import client from "./client";
-
-export const getList = async (id) => {
-  try {
-    const res = await client.get("/ques/all", { params: { id: id } });
-    console.log(res);
-    return res.data;
-  } catch (err) {
-    throw err;
-  }
-};
+import client from './client';
 
 export const getDetail = async (id) => {
   try {
-    const res = await client.get("/details", { params: { id: id } });
+    const res = await client.get('/details', { params: { id: id } });
     console.log(res);
     return res.data;
   } catch (err) {

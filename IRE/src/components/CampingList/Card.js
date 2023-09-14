@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import icon from "../../assets/CampingList/Vector-Blue.png";
-import { useNavigate } from "react-router-dom";
+import styled from 'styled-components';
+import icon from '../../assets/CampingList/Vector-Blue.png';
+import { useNavigate } from 'react-router-dom';
 
 const CampingCard = ({ data }) => {
   const navigate = useNavigate();
-  const staticServerUrl = process.env.REACT_APP_PATH || "";
+  const staticServerUrl = process.env.REACT_APP_PATH || '';
 
   const navigateDetail = (data) => {
     navigate(`${staticServerUrl}/campingDetail/${data.id}`, {

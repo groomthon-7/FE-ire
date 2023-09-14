@@ -1,28 +1,28 @@
 const initialState = {
-  people: "",
-  view: "",
-  camp: "",
-  weather: "",
+  people: '',
+  view: '',
+  camp: '',
+  weather: '',
 };
 
 function OptionReducer(currentState = initialState, action) {
   switch (action.type) {
-    case "SET_PEOPLE":
+    case 'SET_PEOPLE':
       return {
         ...currentState,
         people: action.payload,
       };
-    case "SET_VIEW":
+    case 'SET_VIEW':
       return {
         ...currentState,
         view: action.payload,
       };
-    case "SET_CAMP":
+    case 'SET_CAMP':
       return {
         ...currentState,
         camp: action.payload,
       };
-    case "SET_WEATHER":
+    case 'SET_WEATHER':
       return {
         ...currentState,
         weather: action.payload,

@@ -1,7 +1,7 @@
-import bg from "../assets/Research/bg.png";
-import styled from "styled-components";
-import Button from "../components/common/button";
-import { useNavigate } from "react-router-dom";
+import bg from '../assets/Research/bg.png';
+import styled from 'styled-components';
+import Button from '../components/common/button';
+import { useNavigate } from 'react-router-dom';
 
 const Main = () => {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const Main = () => {
         <Button
           type="lg"
           text="시작하기"
-          onClick={() => navigate("./research")}
+          onClick={() => navigate('./research')}
         />
       </BtnContainer>
     </Container>

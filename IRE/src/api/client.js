@@ -1,5 +1,5 @@
-import axios from "axios";
-import { SPRING_URL } from "./url";
+import axios from 'axios';
+import { SPRING_URL } from './url';
 
 const client = axios.create();
 client.defaults.baseURL = `${SPRING_URL}`;

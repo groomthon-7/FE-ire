@@ -1,32 +1,17 @@
-import styled from "styled-components";
-import Button from "../components/CampingList/Button";
-import CampingCard from "../components/CampingList/Card";
+import styled from 'styled-components';
+import Button from '../components/CampingList/Button';
+import CampingCard from '../components/CampingList/Card';
 
-import icon from "../assets/CampingList/Ellipse18.png";
-import { useEffect, useState } from "react";
-import LayOut from "../components/common/layout";
-import { getAllCampingApi } from "../api/getCampingList";
-
-import allData from "./all";
-import { useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import icon from '../assets/CampingList/Ellipse18.png';
+import LayOut from '../components/common/layout';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const CampingList = () => {
   const location = useLocation();
 
   const { data } = location.state || {};
 
-  console.log("캠핑리스트", data);
-
-  // const filteredData = allData.map((el, idx) => ({
-  //   businessName: el.businessName,
-  //   longitude: el.longitude,
-  //   latitude: el.latitude,
-  // }));
-
-  // console.log('필터', filteredData);
-
-  // [[이름, 위도, 경도],[이름, 위도, 경도]]
+  console.log('캠핑리스트', data);
 
   const navigate = useNavigate();
 

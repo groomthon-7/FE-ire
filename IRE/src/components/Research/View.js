@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { useState, useEffect } from "react";
+import styled from 'styled-components';
+import { useState, useEffect } from 'react';
 
 const ViewCard = ({ text, num, img, selectedValue, setSelectedValue }) => {
   const [clicked, setClicked] = useState(false);
@@ -12,13 +12,13 @@ const ViewCard = ({ text, num, img, selectedValue, setSelectedValue }) => {
   // 중복 선택 제한
   useEffect(() => {
     if (text !== selectedValue) {
-      setClicked("false");
+      setClicked('false');
     }
   }, [selectedValue]);
 
   return (
     <Container onClick={handleClick} c={clicked}>
-      <Text c={clicked} star={num === 2 ? "star" : ""}>
+      <Text c={clicked} star={num === 2 ? 'star' : ''}>
         {text}
       </Text>
       {clicked ? <Img src={img[1]} /> : <Img src={img[0]} />}
@@ -40,7 +40,7 @@ const Text = styled.p`
   line-height: 26px;
   margin-left: 16px;
   margin-top: -125px;
-  color: ${(props) => (props.star === "star" ? "white" : "black")};
+  color: ${(props) => (props.star === 'star' ? 'white' : 'black')};
 `;
 
 const Container = styled.div`
@@ -50,7 +50,7 @@ const Container = styled.div`
   align-items: center;
   border-radius: 12px;
   border: 1px solid #f4f4f4;
-  background: ${(props) => (props.c === false ? "white" : "none")};
+  background: ${(props) => (props.c === false ? 'white' : 'none')};
   box-shadow: 0px 4px 14px 0px #f3f3f3;
   cursor: pointer;
   position: relative;

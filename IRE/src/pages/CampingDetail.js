@@ -1,18 +1,18 @@
-import { styled } from "styled-components";
-import backButton from "../assets/CampingDetail/chevron-left.png";
-import thumnail from "../assets/CampingDetail/Frame 1000003974.png";
-import phone from "../assets/CampingDetail/phone.png";
-import pin from "../assets/CampingDetail/pin.png";
-import LayOut from "../components/common/layout";
-import Facility from "../components/CampingDetail/Facility";
-import Mart from "../components/CampingDetail/Mart";
-import Food from "../components/CampingDetail/Food";
-import { useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { getDetail } from "../api/getlist";
-import { useEffect, useState } from "react";
-import icons from "../assets/CampingDetail/icons.png";
-import { useParams } from "react-router-dom";
+import { styled } from 'styled-components';
+import backButton from '../assets/CampingDetail/chevron-left.png';
+import thumnail from '../assets/CampingDetail/Frame 1000003974.png';
+import phone from '../assets/CampingDetail/phone.png';
+import pin from '../assets/CampingDetail/pin.png';
+import LayOut from '../components/common/layout';
+import Facility from '../components/CampingDetail/Facility';
+import Mart from '../components/CampingDetail/Mart';
+import Food from '../components/CampingDetail/Food';
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { getDetail } from '../api/getlist';
+import { useEffect, useState } from 'react';
+import icons from '../assets/CampingDetail/icons.png';
+import { useParams } from 'react-router-dom';
 
 const CampingDetail = () => {
   const location = useLocation();
@@ -25,7 +25,7 @@ const CampingDetail = () => {
     const fetchData = async () => {
       const res = await getDetail(id);
       setDetailData(res);
-      console.log("디테일 데이터", res);
+      console.log('디테일 데이터', res);
     };
 
     fetchData();
@@ -123,7 +123,7 @@ const CampImg = styled.img`
 const NameContainer = styled.div`
   font-size: 1.25rem;
   font-weight: 700;
-  margin-top: ${(props) => (props.mart ? "1rem" : "21rem")};
+  margin-top: ${(props) => (props.mart ? '1rem' : '21rem')};
 `;
 
 const Name = styled.div`
