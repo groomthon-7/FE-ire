@@ -1,6 +1,13 @@
 # 🏕️ 제주도 캠핑장 추천 서비스 : 이레옵써
 
 ![로고](https://github.com/groomthon-7/FE-ire/assets/104717341/700688e3-bd29-48b0-aad4-be37e3438272)
+## 🔗 웹사이트 배포 링크
+
+> 
+
+## 🔗 피그마 링크
+
+> https://www.figma.com/file/D6KUkjrZNIdroXiHzODaJM/%EC%9D%B4%EB%A0%88%EC%98%B5%EC%8D%A8?type=design&node-id=0-1&mode=design&t=ZlLwLIYlXywZqu2c-0
 
 <br>
 
@@ -83,13 +90,3 @@
 ### Code Formmater
 
 <img src="https://img.shields.io/badge/prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=black">
-
-<br>
-
-## 🔗 웹사이트 배포 링크
-
-> 
-
-## 🔗 피그마 링크
-
-> 
