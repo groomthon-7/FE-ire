@@ -43,7 +43,7 @@
 	   <td><img width="200px" src="https://github.com/groomthon-7/FE-ire/assets/104717341/b11633b0-10cd-486c-8e46-4fbbcbb93d94"></td>
     <td><img width="200px" src="https://github.com/groomthon-7/FE-ire/assets/104717341/50d495e2-590a-4188-abfb-77a9f2610915"></td>
 	
-	</tr>
+</tr>
 </table>
 <br/>
 <table>
